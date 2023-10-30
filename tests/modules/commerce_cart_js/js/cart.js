@@ -5,7 +5,7 @@
 * @preserve
 **/
 
-(function ($, _, Drupal, drupalSettings) {
+(function (_, Drupal, drupalSettings) {
   var cache = {};
 
   Drupal.commerceCart = {
@@ -42,7 +42,7 @@
 
   Drupal.behaviors.cartBlock = {
     attach: function attach(context) {
-      $(context).find('#commerce_cart_js_block').once('cart-block-render').each(function () {
+      once('cart-block-render', '#commerce_cart_js_block', context).forEach(function () {
         var model = new Drupal.commerceCart.CartBlockModel(drupalSettings.cartBlock.context);
         Drupal.commerceCart.models.push(model);
         var view = new Drupal.commerceCart.CartBlockView({
@@ -54,4 +54,4 @@
       });
     }
   };
-})(jQuery, _, Drupal, drupalSettings);
+})(_, Drupal, drupalSettings);

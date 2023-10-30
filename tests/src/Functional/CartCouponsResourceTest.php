@@ -19,7 +19,7 @@ class CartCouponsResourceTest extends CartResourceTestBase {
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'commerce_promotion',
   ];
 
@@ -31,11 +31,8 @@ class CartCouponsResourceTest extends CartResourceTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  public function setUp(): void {
     parent::setUp();
-    $this->setUpAuthorization('GET');
-    $this->setUpAuthorization('PATCH');
-    $this->setUpAuthorization('DELETE');
   }
 
   /**

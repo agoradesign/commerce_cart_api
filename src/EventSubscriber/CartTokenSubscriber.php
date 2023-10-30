@@ -93,7 +93,14 @@ final class CartTokenSubscriber implements EventSubscriberInterface {
    *   The response event.
    */
   public function onResponse(ResponseEvent $event) {
-    if (!$event->isMasterRequest()) {
+    // @todo Only use "isMainRequest()" here, once Drupal 9 reaches its EOL.
+    $isMainRequest = FALSE;
+    if (version_compare(\Drupal::VERSION, '10', '<')) {
+      $isMainRequest = $event->isMasterRequest();
+    } else {
+      $isMainRequest = $event->isMainRequest();
+    }
+    if (!$isMainRequest) {
       return;
     }
     $request = $event->getRequest();

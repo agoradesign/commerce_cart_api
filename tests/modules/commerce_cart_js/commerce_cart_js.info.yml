@@ -1,7 +1,7 @@
 name: 'Commerce Cart: JS'
 description: 'Provides cart block and form replacements using Backbone.js and Underscore'
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^9.4 || ^10
 type: module
 package: Testing
 dependencies:
-  - commerce_cart
+  - commerce:commerce_cart

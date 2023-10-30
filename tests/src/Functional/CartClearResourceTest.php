@@ -21,9 +21,8 @@ class CartClearResourceTest extends CartResourceTestBase {
   /**
    * {@inheritdoc}
    */
-  public function setUp() {
+  public function setUp(): void {
     parent::setUp();
-    $this->setUpAuthorization('DELETE');
   }
 
   /**

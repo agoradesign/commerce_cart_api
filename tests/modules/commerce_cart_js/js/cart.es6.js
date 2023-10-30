@@ -1,4 +1,4 @@
-(function ($, _, Drupal, drupalSettings) {
+(function (_, Drupal, drupalSettings) {
   const cache = {};
 
   // Use Mustache.js style formatting (and Twig)
@@ -57,7 +57,7 @@
    */
   Drupal.behaviors.cartBlock = {
     attach(context) {
-      $(context).find('#commerce_cart_js_block').once('cart-block-render').each(function () {
+      once('cart-block-render', '#commerce_cart_js_block', context).forEach(function () {
         const model = new Drupal.commerceCart.CartBlockModel(
           drupalSettings.cartBlock.context
         );
@@ -72,4 +72,4 @@
     }
   };
 
-}(jQuery, _, Drupal, drupalSettings));
+}(_, Drupal, drupalSettings));

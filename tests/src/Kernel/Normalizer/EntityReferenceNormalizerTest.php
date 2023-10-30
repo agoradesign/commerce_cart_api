@@ -14,12 +14,15 @@ use Drupal\Core\DependencyInjection\ServiceModifierInterface;
 use Drupal\Core\Entity\Entity\EntityFormMode;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Tests\commerce_order\Kernel\OrderKernelTestBase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\Routing\Route;
 
 /**
  * @group commerce_cart_api
  */
 class EntityReferenceNormalizerTest extends OrderKernelTestBase implements ServiceModifierInterface {
+
+  use ProphecyTrait;
 
   /**
    * @var \Drupal\commerce_order\Entity\Order
@@ -29,7 +32,7 @@ class EntityReferenceNormalizerTest extends OrderKernelTestBase implements Servi
   /**
    * {@inheritdoc}
    */
-  public static $modules = [
+  protected static $modules = [
     'serialization',
     'commerce_product',
     'commerce_cart',
